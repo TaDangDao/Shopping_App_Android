@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/shopping_overlook_graph"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/homeShoppingFragment">
+
+    <fragment
+        android:id="@+id/homeShoppingFragment"
+        android:name="com.example.shoppingapp.fragmentLoginRegister.HomeShoppingFragment"
+        android:label="HomeShoppingFragment"
+        tools:layout="@layout/home_shopping_fragment">
+        <action
+            android:id="@+id/action_homeShoppingFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartProductsFragment"
+        android:name="com.example.shoppingapp.fragmentLoginRegister.CartProductsFragment"
+        android:label="CartProductsFragment"
+        tools:layout="@layout/cart_product_fragment"
+        >
+        <action
+            android:id="@+id/action_cartProductsFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+        <action
+            android:id="@+id/action_cartProductsFragment_to_billingFragment"
+            app:destination="@id/billingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment2"
+        android:name="com.example.shoppingapp.fragmentLoginRegister.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/search_fragment"
+        >
+        <action
+            android:id="@+id/action_searchFragment2_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment2"
+        android:name="com.example.shoppingapp.fragmentLoginRegister.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/profile_fragment">
+        <action
+            android:id="@+id/action_profileFragment2_to_userAccountFragment"
+            app:destination="@id/userAccountFragment" />
+        <action
+            android:id="@+id/action_profileFragment2_to_billingFragment"
+            app:destination="@id/billingFragment" />
+        <action
+            android:id="@+id/action_profileFragment2_to_orderFragment"
+            app:destination="@id/orderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.example.shoppingapp.fragmentLoginRegister.ProductDetailFragment"
+        android:label="ProductDetailFragment"
+        tools:layout="@layout/product_detail_fragment">
+        <argument
+            android:name="product"
+            app:argType="com.example.shoppingapp.data.Product" />
+        <action
+            android:id="@+id/action_productDetailFragment_to_cartProductsFragment"
+            app:destination="@id/cartProductsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/billingFragment"
+        android:name="com.example.shoppingapp.fragmentLoginRegister.BillingFragment"
+        android:label="BillingFragment"
+        tools:layout="@layout/billing_fragment"
+        >
+        <argument
+            android:name="cart"
+            app:argType="com.example.shoppingapp.data.CartProduct[]" />
+        <action
+            android:id="@+id/action_billingFragment_to_addressFragment"
+            app:destination="@id/addressFragment" />
+        <argument
+            android:name="price"
+            app:argType="float" />
+        <action
+            android:id="@+id/action_billingFragment_to_orderFragment"
+            app:destination="@id/orderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userAccountFragment"
+        android:name="com.example.shoppingapp.fragmentLoginRegister.UserAccountFragment"
+        android:label="UserAccountFragment"
+        tools:layout="@layout/account_fragment"
+        />
+    <fragment
+        android:id="@+id/addressFragment"
+        android:name="com.example.shoppingapp.fragmentLoginRegister.AddressFragment"
+        android:label="AddressFragment"
+        tools:layout="@layout/address_fragment"/>
+    <fragment
+        android:id="@+id/orderFragment"
+        android:name="com.example.shoppingapp.fragmentLoginRegister.OrderFragment"
+        android:label="OrderFragment"
+        tools:layout="@layout/order_fragment">
+        <action
+            android:id="@+id/action_orderFragment_to_orderDetailFragment"
+            app:destination="@id/orderDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderDetailFragment"
+        android:name="com.example.shoppingapp.fragmentLoginRegister.OrderDetailFragment"
+        android:label="OrderDetailFragment"
+        tools:layout="@layout/order_detail_fragment">
+        <argument
+            android:name="order"
+            app:argType="com.example.shoppingapp.data.Order" />
+    </fragment>
+</navigation>
